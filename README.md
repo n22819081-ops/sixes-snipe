@@ -14,9 +14,11 @@ platform/discord.js discord.js adapter (optional dep)
 test/core.test.js   core smoke test (no network needed)
 ```
 
-The brain lives in `core.js`; each platform is a thin adapter that maps its
-events/commands onto it. The adapters inject a small render API (reactions,
-messages, history) so the core never talks to a platform directly.
+The shared logic (leaderboard, pairing, seasons, stats) lives in `core.js` so
+it isn't written twice. Each platform file is a thin wrapper that feeds its
+own events into that shared core. The core doesn't know which platform it's on —
+the wrapper hands it the platform's render function (reactions, messages,
+history) and stays out of core's way.
 
 ## Setup
 
@@ -49,7 +51,7 @@ that platform is skipped — no `BOT_PLATFORM` switch needed.
 ### Discord setup (greenfield)
 
 1. Create an app at the [Discord Developer Portal](https://discord.com/developers/applications) → **Bot** → copy the token into `DISCORD_BOT_TOKEN`.
-2. Enable **Privileged Gateway Intents**: `SERVER MEMBERS` not required, but enable **Message Content** and **Presence** (Message Content is essential).
+2. Enable **Privileged Gateway Intents**: turn on **Message Content** (required — without it the bot can't read the message body, so photo+mention won't fire).
 3. Invite the bot with scope `bot` and permissions: View Channels, Send Messages, Add Reactions, Read Message History.
 4. Set `DISCORD_CLIENT_ID` (the application ID) and `DISCORD_SNIPE_CHANNEL_ID`.
 5. `discord.js` is a dependency (`npm install` pulls it). Slash commands register automatically on startup.
