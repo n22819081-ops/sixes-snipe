@@ -1,0 +1,16 @@
+{
+  "snipes": {
+    "C0EXAMPLE1|1700000000.000001": {
+      "channel": "C0EXAMPLE1",
+      "ts": "1700000000.000001",
+      "sniper": "U0EXAMPLE1",
+      "target": "U0EXAMPLE2",
+      "valid": true,
+      "eyesBy": [],
+      "createdAt": 1700000000000
+    }
+  },
+  "archives": [],
+  "seasonId": "2026-spring",
+  "seasonStartMs": 1700000000000
+}

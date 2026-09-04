@@ -1,0 +1,22 @@
+{
+  "name": "snipe-bot",
+  "version": "1.1.0",
+  "description": "Slack + Discord snipe-tracking bot (photo + @target pairing, per-term leaderboards)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test/core.test.js"
+  },
+  "keywords": ["slack", "discord", "bot", "snipe"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.6.0",
+    "discord.js": "^14.16.0",
+    "dotenv": "^17.3.1"
+  }
+}
